@@ -372,7 +372,11 @@ recordings <- deployDetails_PASCAL %>%
       "_",
       Data_ID
     ),
-    recording_code = "SoundTrap_Recordings",
+    recording_code = if_else(
+      str_starts(Type, "ST"),
+      "SoundTrap_Recordings",
+      paste0(Type, "_Recordings")
+    ),
     recording_device_codes = paste0(
       "SoundTrap_",
       Instrument_ID,
@@ -629,7 +633,11 @@ recordings <- deployDetails_CCES %>%
       "_",
       Data_ID
     ),
-    recording_code = "SoundTrap_Recordings",
+    recording_code = if_else(
+      str_starts(Type, "ST"),
+      "SoundTrap_Recordings",
+      paste0(Type, "_Recordings")
+    ),
     recording_device_codes = paste0(
       "SoundTrap_",
       Instrument_ID,
