@@ -31,6 +31,18 @@ analyses <- analyses %>%
     analysis_release_pacm = TRUE
   )
 
+analyses <- analyses %>%
+  mutate(
+    recording_codes = case_when(
+      recording_codes == "SM3M_RECORDING" ~ "SM3M_Recordings",
+      recording_codes == "SOUNDTRAP_RECORDING" ~ "SoundTrap_Recordings",
+      recording_codes == "SM2BAT_RECORDING" ~ "SM2BAT_Recordings"
+    )
+  )
+
+# analyses <- analyses %>%
+#   mutate(analysis_quality_code
+
 # Save updated analysis sheet
 write_csv(analyses, 'Makara/MakaraSubmission10012025/analyses.csv')
 
